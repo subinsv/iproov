@@ -23,7 +23,8 @@ abstract class IProovEvent {
       case 'failure':
         final frameData = map['frame'];
         final frame = frameData != null ? decodePng(frameData) : null;
-        return IProovEventFailure(map['reason'], map['feedbackCode'], frame);
+        //Temporary patch
+        return IProovEventFailure(map['reason'], map['feedbackCode'] ?? '', frame);
 
       case 'cancelled':
         final canceller = map['canceller'];
